@@ -78,22 +78,20 @@ main {
 }
 /* ==== スマホ専用スタイル ==== */
 @media screen and (max-width: 768px) {
-  html {
+  html, body {
+    height: 100%;
     background-size: 100% 100%;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden; /* 本体スクロールを防ぐため htmlのみは維持 */
-  }
-
-  body {
-    overflow: auto; /* ← Androidのスクロール不能を解消 */
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* ← ← ← これがポイント（両方 scroll 可能に） */
+    -webkit-overflow-scrolling: touch;
   }
 
   main {
-    min-height: 100vh;
-    overflow-y: auto;
-    padding-bottom: 40em; /* ← iPhone最下行余白を拡大 */
-    -webkit-overflow-scrolling: touch;
+    padding-bottom: 40em; /* iPhone対策用の十分な余白 */
+    box-sizing: border-box;
   }
 }
