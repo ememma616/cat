@@ -83,12 +83,13 @@ main {
     background-attachment: fixed; /* 背景を固定 */
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden; /* 本体スクロールは無効に */
+    overflow: hidden; /* 本体全体のスクロールは抑制 */
   }
 
   main {
-    height: 100vh;
-    overflow-y: scroll; /* main内だけスクロール */
-    -webkit-overflow-scrolling: touch; /* iOSでの慣性スクロール */
+    min-height: 100vh; /* iOSのビューポート誤差に対応 */
+    overflow-y: auto; /* main内だけスクロール */
+    padding-bottom: 30em; /* 最下部にスクロール余白を確保 */
+    -webkit-overflow-scrolling: touch; /* iOSの慣性スクロール */
   }
 }
