@@ -78,18 +78,22 @@ main {
 }
 /* ==== スマホ専用スタイル ==== */
 @media screen and (max-width: 768px) {
-  html, body {
+  html {
     background-size: 100% 100%;
-    background-attachment: fixed; /* 背景を固定 */
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
-    overflow: hidden; /* 本体全体のスクロールは抑制 */
+    overflow: hidden; /* 本体スクロールを防ぐため htmlのみは維持 */
+  }
+
+  body {
+    overflow: auto; /* ← Androidのスクロール不能を解消 */
   }
 
   main {
-    min-height: 100vh; /* iOSのビューポート誤差に対応 */
-    overflow-y: auto; /* main内だけスクロール */
-    padding-bottom: 30em; /* 最下部にスクロール余白を確保 */
-    -webkit-overflow-scrolling: touch; /* iOSの慣性スクロール */
+    min-height: 100vh;
+    overflow-y: auto;
+    padding-bottom: 40em; /* ← iPhone最下行余白を拡大 */
+    -webkit-overflow-scrolling: touch;
   }
 }
