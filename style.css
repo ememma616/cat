@@ -76,3 +76,19 @@ main {
   color: #22292C;
   text-shadow: 0 1px 2px rgba(255,255,255,0.6); /* 読みやすさ補強 */
 }
+/* ==== スマホ専用スタイル ==== */
+@media screen and (max-width: 768px) {
+  html, body {
+    background-size: 100% 100%;
+    background-attachment: fixed; /* 背景を固定 */
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden; /* 本体スクロールは無効に */
+  }
+
+  main {
+    height: 100vh;
+    overflow-y: scroll; /* main内だけスクロール */
+    -webkit-overflow-scrolling: touch; /* iOSでの慣性スクロール */
+  }
+}
